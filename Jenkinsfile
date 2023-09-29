@@ -2,10 +2,12 @@ pipeline {
     agent any
 
     stages {
-        container('maven'){
             stage('Prepare'){
-                sh 'printenv'
+                container('maven'){
+                    steps{
+                        sh 'printenv'
+                    }
+                }
             }
-        }
     }
 }
