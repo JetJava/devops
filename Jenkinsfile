@@ -17,7 +17,17 @@ pipeline {
                                 credentialsId: 'github-ssh',
                                 url: env.REPO
                         }
-                        sh 'sleep 30'
+                        sh 'cd ' + env.WORKSPACE
+                        sh 'ls -la'
+                    }
+                }
+            }
+            stage('Build'){
+                steps{
+                    container('maven'){
+                        sh 'mvn clean package'
+                        sh 'cd target'
+                        sh 'ls -la'
                     }
                 }
             }
