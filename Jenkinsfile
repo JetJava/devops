@@ -12,7 +12,11 @@ pipeline {
             stage('Checkout'){
                 steps{
                     container('maven'){
-                        sh 'git clone ' + env.REPO
+                        script {
+                            git branch: 'master',
+                                credentialsId: 'github-ssh',
+                                url: env.REPO
+                        }
                         sh 'sleep 30'
                     }
                 }
