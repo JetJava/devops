@@ -3,8 +3,8 @@ pipeline {
 
     stages {
             stage('Prepare'){
-                container('maven'){
-                    steps{
+                steps{
+                    container('maven'){
                         sh 'printenv'
                     }
                 }
