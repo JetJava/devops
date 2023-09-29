@@ -25,11 +25,7 @@ pipeline {
             stage('Build'){
                 steps{
                     container('maven'){
-                        sh 'mvn clean package'
-                        sh 'ls -la'
-                        sh 'cd target'
-                        sh 'ls -la'
-                        sh 'sleep 30'
+                        sh 'mvn clean compile jib:build'
                     }
                 }
             }
