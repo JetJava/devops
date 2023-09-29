@@ -26,7 +26,8 @@ pipeline {
                 steps{
                     container('maven'){
                         sh 'mvn clean package'
-                        sh 'cd target/'
+                        sh 'ls -la'
+                        sh 'cd target'
                         sh 'ls -la'
                     }
                 }
