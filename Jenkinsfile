@@ -9,5 +9,13 @@ pipeline {
                     }
                 }
             }
+            stage('Checkout'){
+                steps{
+                    container('maven'){
+                        sh 'git clone ' + env.REPO
+                        sh 'sleep 30'
+                    }
+                }
+            }
     }
 }
