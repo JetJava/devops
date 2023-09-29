@@ -29,6 +29,7 @@ pipeline {
                         sh 'ls -la'
                         sh 'cd target'
                         sh 'ls -la'
+                        sh 'sleep 30'
                     }
                 }
             }
